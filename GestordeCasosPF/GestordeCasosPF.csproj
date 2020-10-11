@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -19,11 +19,19 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Casos\Data\" />
+    <Folder Include="Areas\Casos\Models\" />
+    <Folder Include="Areas\Clientes\Data\" />
+    <Folder Include="Areas\Clientes\Models\" />
     <Folder Include="Areas\Principal\Data\" />
     <Folder Include="Areas\Principal\Models\" />
+    <Folder Include="Areas\TipoServicio\Data\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

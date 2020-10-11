@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using GestordeCasosPF.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -45,6 +47,11 @@ namespace GestordeCasosPF.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+
+            [Required]
+            [Display(Name = "Nombre de Usuario")]
+            public string UserName { get; set; }
+
             [Required(ErrorMessage = "Es obligatorio ingresar un Email")]
             [EmailAddress(ErrorMessage = "El campo ingresado no es un email valido")]
             [Display(Name = "Correo")]
@@ -76,8 +83,10 @@ namespace GestordeCasosPF.Areas.Identity.Pages.Account
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
                 if (result.Succeeded)
                 {
+              
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

@@ -42,8 +42,8 @@ namespace GestordeCasosPF.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "Es obligatorio ingresar un Email")]
-            [EmailAddress(ErrorMessage = "Correo no valido")]
+            [Required(ErrorMessage = "Es obligatorio ingresar un Usuario")]
+
             public string Email { get; set; }
 
             [Required(ErrorMessage = "Es obligatorio ingresar una contraseña")]
@@ -85,6 +85,8 @@ namespace GestordeCasosPF.Areas.Identity.Pages.Account
                     //_logger.LogInformation("User logged in.");
                     //return LocalRedirect(returnUrl);
                     return Redirect("/Principal/Index");
+                    return Redirect("/Casos/Index");
+                    return Redirect("/TipoServicio/Index");
                 }
                 if (result.RequiresTwoFactor)
                 {

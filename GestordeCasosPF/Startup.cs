@@ -38,9 +38,9 @@ namespace GestordeCasosPF
                 options.EnableEndpointRouting = false;
 
             }).AddNewtonsoftJson();
-            
-            
-            
+
+
+
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -81,7 +81,10 @@ namespace GestordeCasosPF
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapAreaRoute("Principal", "Principal", "{controller=Principal}/{action=''}/{id?}");
+                routes.MapAreaRoute("Principal", "Principal", "{controller=Principal}/{action=Index}/{id?}");
+                routes.MapAreaRoute("TipoServicio", "TipoServicio", "{controller=TipoServicio}/{action=TipoServicio}/{id?}");
+                routes.MapAreaRoute("Casos", "Casos", "{controller=Casos}/{action=Casos}/{id?}");
+                routes.MapAreaRoute("Clientes", "Clientes", "{controller=Clientes}/{action='Clase'}/{id?}");
             });
 
         }
